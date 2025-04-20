@@ -45,3 +45,9 @@ body {
 	margin: auto;
 	padding: 7px 25px;
 }
+
+#signup label {
+	width: 110px;
+	font-size: 13px;
+	float: left;
+}
