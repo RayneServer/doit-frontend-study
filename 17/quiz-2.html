@@ -4,8 +4,56 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>연습문제 2</title>
+
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+
+		tr > td {
+			padding: 10px;
+			border: 1px solid #000;
+		}
+	</style>
 </head>
 <body>
-	
+	<div>
+		<input type="text" id="myRow">
+		<label for="myRow">행</label>
+		<input type="text" id="myCol">
+		<label for="myCol">열</label>
+
+		<button type="button" onclick="isEmpty()">작성</button>
+	</div>
+
+	<script>
+		function myRowCol(myRowValue, myColValue) {
+			const tableMommy = document.createElement("table");
+
+			for (let i = 0; i < myRowValue; i++) {
+				const rowChild = document.createElement("tr");
+				
+				for (let j = 0; j < myColValue; j++) {
+					const colChild = document.createElement("td");
+					const myText = document.createTextNode(i + ", " + j);
+					colChild.appendChild(myText);
+					rowChild.appendChild(colChild);
+				}
+
+				tableMommy.appendChild(rowChild);
+			}
+
+			document.querySelector("body").appendChild(tableMommy);
+		}
+
+		function isEmpty() {
+			const myRowValue = document.querySelector("#myRow").value;
+			const myColValue = document.querySelector("#myCol").value;
+
+			if (myRowValue !== "" && myColValue !== "") {
+				myRowCol(myRowValue, myColValue);
+			}
+		}
+	</script>
 </body>
 </html>
